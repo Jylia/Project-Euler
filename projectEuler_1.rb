@@ -1,11 +1,5 @@
-def mult(start, limit)
-  sum = 0
-  for i in start..limit do
-    if (i % 3 == 0)||(i % 5 == 0) then
-	  sum += i
-	end
-  end
-  return sum  
+def mult
+  sum = ((1..999).find_all { |i| i % 5 == 0 or i % 3 == 0 }).reduce(:+)
+  return sum 
 end
-
-puts mult(1, 999)
+puts mult 
