@@ -1,3 +1,5 @@
+#it doesn't work =(
+
 def primes(numb)
   i = (Math.sqrt(numb) - 1).to_int
   loop do
