@@ -1,25 +1,15 @@
-#it doesn't work =(
+  i = 600851475143
+  lim = Math.sqrt(i).to_i
+  answer = 0
 
-def primes(numb)
-  i = (Math.sqrt(numb) - 1).to_int
-  loop do
-    if (numb % i == 0) then
-	    break
-	else if isPrime(i - 1) then
-	  i = i - 1 end
-	end	
-	  puts i
+  def prime(k)
+    lim = Math.sqrt(k).to_i
+	for i in 2..lim 
+	  return false if k % i == 0
+	end
   end
-  return i
+
+  for j in 3..lim 
+	puts answer = j if i % j == 0 and prime(j)
 end
  
-def isPrime(x)
-  for i in 2..(x-1) do
-    if ((x % i) == 0 ) then 
-	  return true
-    end	
-  end
-end
- 
-puts primes(600851475143)
-
