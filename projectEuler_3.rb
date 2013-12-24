@@ -4,9 +4,9 @@
 
   def prime(k)
     lim = Math.sqrt(k).to_i
-	for i in 2..lim 
-	  return false if k % i == 0
-	end
+	  for i in 2..lim 
+	    return false if k % i == 0
+	  end
   end
 
   for j in 3..lim 
