@@ -59,36 +59,25 @@ string = ''
 number.each_slice(3) do |elem|
   for i in 0..1
     string = string << elem[i].to_s
-    new_array = new_array.push(string)
+    # p string
   end	
+  new_array = new_array.push(string)
   string = ''
 end	
-p new_array
+# p new_array
 
 for k in 0..new_array.size - 1
-  for i in 0..19
-    for j in 0..19
-      array[i][j] = new_array[k]
-    end 	
-  end	
+  p new_array[k]
+  # for i in 0..19
+  #   for j in 0..19
+  #     array[i][j] = new_array[k]
+  #   end 	
+  # end	
 end	
 
 p array
 
-# array.each do |elem|
-#   p elem
-# end	
 
-# new_array.each do |elem|
-#   # array[i][j] = new_array[i]
-#   p elem
-# end
-
-# puts array
-# p array[8][6] = 26
-# p array[9][7] = 63
-# p array[10][8] = 78
-# p array[11][9] = 14 
 
 # # puts array
 # for i in 0..(number.size - 5)
