@@ -48,41 +48,95 @@ number = '08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08 ' <<
 max = 1
 suppose = 1
 number = number.chars.map { |s| s.to_i }
-# p number.chars.map { |s| s.to_i }
 array = Array.new(20) {Array.new(20)}
 i = 0
 j = 0
-k = 0
+
 new_array = []
 string = ''
+product_array = []
 
 number.each_slice(3) do |elem|
-  for i in 0..1
+  (0..1).each do |i|
     string = string << elem[i].to_s
-    # p string
   end	
   new_array = new_array.push(string)
   string = ''
 end	
-# p new_array
 
-for k in 0..new_array.size - 1
-  p new_array[k]
-  # for i in 0..19
-  #   for j in 0..19
-  #     array[i][j] = new_array[k]
-  #   end 	
-  # end	
+
+(0..19).each do |i|
+  (0..19).each do |j|
+    array[i][j] = new_array[i * 20 + j].to_i
+  end 	
 end	
 
-p array
+def count_strings array
+  product_array = []
+  max = 0
+  (0..19).each do |i|
+    (0..19).each do |j|
+      suppose = array[i][j..(j + 3)].inject(1) { |product, n| product * n } 
+      max = suppose if suppose > max
+    end
+  end 
+  p max
+end
 
+def count_rows array
+  array = array.transpose
+  product_array = []
+  max = 0
+  (0..19).each do |i|
+    (0..19).each do |j|
+      suppose = array[i][j..(j + 3)].inject(1) { |product, n| product * n } 
+      max = suppose if suppose > max
+    end
+  end 
+  p max
+end
 
+def count_diagonally array
+  product_array = []
+  other = []
+  max = 0
+  (0..19).each do |i|
+    other = other.push(array[i][i])
+  end 
+  (0..19).each do |i|
+    # p other.first * other.last
+    suppose = other[i..(i + 3)].inject(1) { |product, n| product * n } 
+    # p suppose
+    max = suppose if suppose > max
+  end  
+  p max
+end  
 
-# # puts array
-# for i in 0..(number.size - 5)
-#   suppose = number[i..(i+4)].chars.map { |s| s.to_i }.inject(1) { |product, n| product * n } 
-#   max = suppose if suppose > max
-# end	
+def count_diagonally_reverse array
+  product_array = []
+  other = []
+  max = 0
+  (0..19).each do |i|
+    other = other.push(array[i][19 - i])
+  end 
+  (0..19).each do |i|
+    # p other.first * other.last
+    suppose = other[i..(i + 3)].inject(1) { |product, n| product * n } 
+    # p suppose
+    max = suppose if suppose > max
+  end  
+  p max
+end  
 
-# puts max
+p '-'*90
+count_strings array  
+
+p '-'*90
+count_rows array  
+
+p '-'*90
+count_diagonally array 
+
+p '-'*90
+count_diagonally_reverse array 
+
