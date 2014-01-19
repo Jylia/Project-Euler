@@ -10,3 +10,30 @@
 # 28: 1,2,4,7,14,28
 # We can see that 28 is the first triangle number to have over five divisors.
 # What is the value of the first triangle number to have over five hundred divisors?
+
+def count_divisors number
+  counter = 1	
+  (1..Math.sqrt(number).to_i).each do |j|
+	counter = (counter + 2) if number % j == 0
+  end  
+  counter
+end
+
+def triangle_number 
+  number = 0
+  counter = 0
+  i = 1
+  loop do 
+    number = number + i
+    i = i + 1
+    counter = count_divisors number
+    break if counter > 500
+  end	
+  p counter
+  p number
+end 
+
+beginning_time = Time.now
+triangle_number 
+end_time = Time.now
+puts "Time elapsed #{(end_time - beginning_time)*1000} milliseconds"

@@ -9,7 +9,12 @@
 	  end
   end
 
-  for j in 3..lim 
-	puts answer = j if i % j == 0 and prime(j)
+  beginning_time = Time.now
+  (3..lim).each do |j|
+    puts answer = j if i % j == 0 and prime(j)
+
+
 end
+end_time = Time.now
+puts "Time elapsed #{(end_time - beginning_time)*1000} milliseconds"
  
