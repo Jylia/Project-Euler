@@ -119,20 +119,3 @@ answer.each do |number|
 end	
 
 p sum.to_s[0..9]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
